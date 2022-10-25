@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { Person } from './components/Person/Person';
+import { SumList } from './components/List/SumList';
 
 export const misha = {
   name: 'Misha',
@@ -24,10 +24,10 @@ export const alex = {
   isMarried: false,
 };
 
+const personList = [misha, olya, alex];
+
 export const App = () => (
   <div className="App">
-    <Person person={misha} />
-    <Person person={olya} />
-    <Person person={alex} />
+    <SumList personList={personList} />
   </div>
 );

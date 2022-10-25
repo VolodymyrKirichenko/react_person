@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  Card,
+  CardContent,
+  Typography,
+} from '@mui/material';
+import './Person.scss';
 
 export const Person = ({ person }) => {
   const {
@@ -12,27 +18,32 @@ export const Person = ({ person }) => {
   const partner = sex === 'm' ? 'wife' : 'husband';
 
   return (
-    <div className="Person">
-      <h2 className="Person__name">
-        {`My name is ${name}`}
-      </h2>
+    <Card className="Person">
+      <CardContent className="Person__content">
+        <Typography className="Person__name" sx={{ fontSize: 26 }}>
+          {`My name is ${name}`}
+        </Typography>
 
-      {age && (
-        <p className="Person__age">{`I am ${age}`}</p>
-      )}
+        <Typography className="Person__age">
+          {age
+            ? (`I am ${age}`)
+            : (`Age is hidden`
+            )}
+        </Typography>
 
-      {isMarried
-        ? (
-          <p className="Person__partner">
-            {`${partnerName} is my ${partner}`}
-          </p>
-        )
-        : (
-          <p className="Person__partner">
-            I am not married
-          </p>
-        )
-      }
-    </div>
+        {isMarried
+          ? (
+            <Typography className="Person__married">
+              {`${partnerName} is my ${partner}`}
+            </Typography>
+          )
+          : (
+            <Typography className="Person__married">
+              I am not married
+            </Typography>
+          )
+        }
+      </CardContent>
+    </Card>
   );
 };
